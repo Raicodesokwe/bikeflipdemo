@@ -120,9 +120,20 @@ class _CategorySelectionState extends State<CategorySelection> with TickerProvid
                                      ),
                                      child: Row(
                                        children: [
-                                         Image.asset('assets/images/${categoryList[index].image}',height: 60,fit: BoxFit.fill,),
-                                      const   SizedBox(width: 10,),
-                                         Text(categoryList[index].label,style:const TextStyle(color: Colors.white,fontSize: 15),)
+                                         Container(
+                                          height: 60,
+                                          width: 60,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                              color: categoryList[index].borderColor,
+                                              width: 3
+                                            ),
+                                            image: DecorationImage(image: AssetImage('assets/images/${categoryList[index].image}'))
+                                          ),
+                                         ),
+                                         SizedBox(width: screenWidth(context) * .02,),
+                                         Text(categoryList[index].label,style: TextStyle(color: Colors.white,fontSize: screenWidth(context) * 0.035),)
                                        ],
                                      ),
                                                                      ),
